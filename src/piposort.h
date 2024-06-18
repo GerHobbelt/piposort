@@ -165,22 +165,28 @@ void piposort(void *array, size_t nmemb, size_t size, CMPFUNC *cmp)
 	switch (size)
 	{
 		case sizeof(char):
-			return piposort8(array, nmemb, cmp);
+			piposort8(array, nmemb, cmp);
+			return;
 
 		case sizeof(short):
-			return piposort16(array, nmemb, cmp);
+			piposort16(array, nmemb, cmp);
+			return;
 
 		case sizeof(int):
-			return piposort32(array, nmemb, cmp);
+			piposort32(array, nmemb, cmp);
+			return;
 
 		case sizeof(long long):
-			return piposort64(array, nmemb, cmp);
+			piposort64(array, nmemb, cmp);
+			return;
 
 		case sizeof(long double):
-			return piposort128(array, nmemb, cmp);
+			piposort128(array, nmemb, cmp);
+			return;
 
 		default:
-			return assert(size == sizeof(char) || size == sizeof(short) || size == sizeof(int) || size == sizeof(long long) || size == sizeof(long double));
+			assert(size == sizeof(char) || size == sizeof(short) || size == sizeof(int) || size == sizeof(long long) || size == sizeof(long double));
+			return;
 	}
 }
 
