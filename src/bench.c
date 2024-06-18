@@ -74,14 +74,15 @@
   #include "wolfsort.h" // curl "https://raw.githubusercontent.com/scandum/wolfsort/master/src/wolfsort.{c,h}" -o "wolfsort.#1"
 #endif
 
+#if __has_include("rhsort.c")
+    #define RHSORT_C
+    #include "rhsort.c" // curl https://raw.githubusercontent.com/mlochbaum/rhsort/master/rhsort.c > rhsort.c
+#endif
+
 #ifdef __GNUG__
   #include <algorithm>
   #if __has_include("pdqsort.h")
     #include "pdqsort.h" // curl https://raw.githubusercontent.com/orlp/pdqsort/master/pdqsort.h > pdqsort.h
-  #endif
-  #if __has_include("rhsort.c")
-    #define RHSORT_C
-    #include "rhsort.c" // curl https://raw.githubusercontent.com/mlochbaum/rhsort/master/rhsort.c > rhsort.c
   #endif
   #if __has_include("ska_sort.hpp")
     #define SKASORT_HPP
